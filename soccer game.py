@@ -1,21 +1,23 @@
 import random
 home_advantage = 85
 away_disadvantage = 90
+home_goals = 0
+away_goals = 0
+
+def goalPeriod():
+    shot_chance_home = random.randrange(1,100)
+    shot_chance_away = random.randrange(1,100)
+    if shot_chance_home > home_advantage: 
+        home_goals += 1
+    if shot_chance_away > away_disadvantage: 
+        home_goals += 1
+    print ("Home score: ", home_goals)
+    print ("Away score: ", away_goals)
+    print()
 
 def main():
-    home_goals = 0
-    away_goals = 0
     shot = input("5th minute. Hit 'y' to take a shot on goal: ")
-    if shot == 'y':
-        shot_chance_home = random.randrange(1,100)
-        shot_chance_away = random.randrange(1,100)
-        if shot_chance_home > home_advantage:
-            home_goals += 1
-        if shot_chance_away > away_disadvantage:
-            away_goals += 1
-        print("Home score: ",home_goals)
-        print("Away score: ",away_goals)
-    print()
+    goalPeriod()
     shot = input("10th minute. Hit 'y' to take a shot on goal: ")
     if shot == 'y':
         shot_chance_home = random.randrange(1,100)
