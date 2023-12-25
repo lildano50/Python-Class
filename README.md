@@ -1,4 +1,4 @@
-# Soccer Simulation
+# Soccer Simulator
 
 ## Purpose
 This was a project to test my Python skills I learned in my first programming course. It started as a basic idea that I ran with one late night. I since ignored it but wish to revisit as time permits
