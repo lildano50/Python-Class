@@ -2,18 +2,19 @@ import random
 home_advantage = 85
 away_disadvantage = 90
 
-def goalPeriod(goalShot, h_goals, a_goals):
+def homeGoals(goalShot, h_goals):
     if goalShot == 'y':
         shot_chance_home = random.randrange(1,100)
-        shot_chance_away = random.randrange(1,100)
         if shot_chance_home > home_advantage: 
             h_goals += 1
+    return h_goals
+
+def awayGoals (goalShot, a_goals):
+    if goalShot == 'y':
+        shot_chance_away = random.randrange(1,100)
         if shot_chance_away > away_disadvantage: 
             a_goals += 1
-        print ("Home score: ", h_goals)
-        print ("Away score: ", a_goals)
-        print()
-    return h_goals, a_goals
+    return a_goals
 
 def main():
     home_goals = 0
@@ -22,7 +23,10 @@ def main():
     for x in range (5, 91, 5):
         print(x,"th minute.")
         shot = input("Hit 'y' to take a shot on goal: ")
-        goalPeriod(shot, home_goals, away_goals)
+        home_goals = homeGoals(shot, home_goals)
+        away_goals = awayGoals(shot, away_goals)
+        print ("Home score: ", home_goals)
+        print ("Away score: ", away_goals)
 
     # END OF REGULATION
 
